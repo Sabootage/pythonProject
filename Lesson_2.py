@@ -1,39 +1,60 @@
-# вывод типа данных через переменную
-a = 100
-type_a = type(a)
-print(a, type_a)
-# вывод типа данных через функцию
-b = 3.14
-print(b, type(b))
+# Задание 2.1
+# Напишите программу, которая проверяет здоровье персонажа в игре. Если оно равно или меньше нуля, выведите на экран False, в противном случае True.
+health = int(input('Здоровье: '))
+if health <= 0:
+    print('False')
+else:
+    print('True')
 
-# вывод данных в файл с созданием нового файла (.txt .doc .docx ...)
-b = 3.14
-print(b, type(b), file=open('test_my.doc', 'w'))
+# Задание 2.2
+# Напишите программу, которая проверяет является ли введенное число четным. Если да, выведите на экран текст “Четное”, а иначе - “Нечетное”
+number = int(input('Введите число: '))
+if number % 2 == 0:
+    print('Четное')
+else:
+    print('Нечетное')
 
-# сравнение значений (выводится True или False)
-a = 100
-b = 3.14
-print(a is b)
+# Задание 2.3
+# Напишите программу, которая проверяет является ли год високосным. Таковыми считаются года, которые делятся без остатка на 4 (2004, 2008) и не являются столетиями (500, 600). Однако, если год делится без остатка  на 400, он также считается високосным (1200, 2000)
 
-# форматирование текста
-name = 'Bob'
-surname = 'Williams'
-print(f'Hello, {name} {surname}!')
-print('Hello, {} {}!'.format(name, surname))
+# Задание 2.4
+# Напишите программу, которая печатает введенный текст заданное количество раз, построчно. Текст и количество повторений нужно ввести с помощью input()
 
-# ввод данных с клавиатуры + удаление пробелов + перевод в верхний регистр первой буквы
-name = input('What is your name? ')
-strip_name = name.strip().title() # удаление пробелов и перевод в верхний регистр (2 метода сразу)
-# title_name = strip_name.title() # только перевод в верхний регистр первой буквы
-print(f'Hello, {strip_name}!')
-result = strip_name # создаем итоговую переменную
-for i, item in enumerate (result, 1):
-    print(i, item)
+# Задание 2.5.
+# Напишите программу-калькулятор, которая принимает два числа и оператор (в формате str), производит заданное арифметическое действие и печатает результат в формате: {num1} {operator) {num2) = {result}
+# num1 = int(input('Введите 1-ое число: '))
+# num2 = int(input('Введите 2-ое число: '))
+# operator = str(input('Введите требуемое арифметическое действие: '))
+# if operator == '+':
+#     result = num1 + num2
+#     print(f'{num1} {operator} {num2} = {result}')
+# elif operator == '-':
+#     result = num1 - num2
+#     print(f'{num1} {operator} {num2} = {result}')
+# elif operator == '*':
+#     result = num1 * num2
+#     print(f'{num1} {operator} {num2} = {result}')
+# elif operator == '/':
+#     if num2 != 0:
+#         result = num1 / num2
+#         print(f'{num1} {operator} {num2} = {result}')
+#     else:
+#         print('Деление на ноль невозможно')
+# else:
+#     print('Введеное неверное значение')
 
-
-
-
-
+# ВАРИАНТ №2
+# try:
+#     if operator == '+':
+#         print(num1 + num2)
+#     elif operator == '-':
+#         print(num1 - num2)
+#     elif operator == '*':
+#         print(num1 * num2)
+#     elif operator == '/':
+#         print(num1 / num2)
+# except ZeroDivisionError:
+#     print('Деление на ноль невозможно')
 
 
 

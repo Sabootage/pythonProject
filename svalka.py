@@ -26,42 +26,11 @@
 # print (f'{number}'[3])
 
 
-# a = 'hello'
-# print(a)
-# # upper - ставит верхний регистр
-# b = 'hello'.upper()
-# print(b)
-# # lower - ставит нижний регистр
-# c = "HELLO".lower()
-# print(c)
-# # title - ставит 1-ую букву (каждой буквы в строк) заглавной (.capitalize() - только 1-го слова в строке)
-# d = 'hEllo world'.title()
-# print(d)
-# # .swapcase() - меняет регистр
-# # .find ("l') - ищет и возвращает индекс того, что введено в '     "
-# # .find ( __sub: 'H', __start:2, __end:4) - указывает что искать и в каком диапазоне индексов - возвращет номер индекса
-# # .startswith('hel') или .end - возвращают true/fals в зависимости от искомого значения в начале или конце строки
-# # .ljust( __width: 10, __fillchar: '*") - вставляет введеное значение в левую часть строки
-# # .rjust() - вставляет введеное значение в правую часть строки
-# # .center( __width:10, __fillchar: '*') - вставляет введеное значение в центр строки
-#
-# # обрезание пробелов
-# e = '     hello   '.strip()
-# print(e)
-#
-# # обрезание введенной информации (.lstrip и .rstrip - удаление слева и справа)
-# f = 'hello'.strip('o')
-# print(f)
-#
-# # разбиение на список
-# g = 'Hello World Nikolai'
-# h = g.split()
-# print(h)
-# # приведение к строке
-# j = '  '.join(h)
-# print(j)
-
-number = input('How old are you?')
-print('Your age is:' + number)
-print(f'Your age is: {number}')
-print('Your age is: {}'.format(str(number)))
+# ввод данных с клавиатуры + удаление пробелов + перевод в верхний регистр первой буквы
+name = input('What is your name? ')
+strip_name = name.strip().title() # удаление пробелов и перевод в верхний регистр
+# title_name = strip_name.title() # только перевод в верхний регистр первой буквы
+print(f'Hello, {strip_name}!')
+result = strip_name # создаем итоговую переменную
+for i, item in enumerate (result, 1):
+    print(i, item)
