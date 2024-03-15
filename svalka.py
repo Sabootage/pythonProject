@@ -26,11 +26,46 @@
 # print (f'{number}'[3])
 
 
-# ввод данных с клавиатуры + удаление пробелов + перевод в верхний регистр первой буквы
-name = input('What is your name? ')
-strip_name = name.strip().title() # удаление пробелов и перевод в верхний регистр
-# title_name = strip_name.title() # только перевод в верхний регистр первой буквы
-print(f'Hello, {strip_name}!')
-result = strip_name # создаем итоговую переменную
-for i, item in enumerate (result, 1):
-    print(i, item)
+
+# """"x = open('E:/SM/TinderSim_InkChapters/ADRENALINE/CS/ADRENALINE_CH01_CS.ink', 'r', encoding='utf-8')
+# c = x.read() #устанавливаем переменную чтения этого файла
+# # print(c) #выводим содержимое файла в консоль
+# y = (f'В файле {c} найден искомый символ')
+# q = input('Введите искомый символ: ')
+# if q in c:
+#     # print(y),
+#     input('Нажмите Enter для поиска индекса искомого элемента: ')
+#     if q in c:
+#         index = c.index(q)
+#         print(f'Индекс искомого элемента: {index}') # вывод индекса искомого элемента (index)
+# else:
+#     print('Совпадений не найдено')"""
+
+
+# получим объект файла
+# file1 = open("E:/SM/TinderSim_InkChapters/ADRENALINE/CS/ADRENALINE_CH01_CS.ink", "r", encoding="utf-8")
+# a = '$price_1'
+# while True:
+#     # считываем строку
+#     line = file1.readline()
+#     # прерываем цикл, если строка пустая
+#     if not line:
+#         break
+#     # выводим строку
+#     print(line.strip())
+# if a in file1:
+#     line = file1.count(a)
+# print('Количество price_1:', line)
+# # else:
+# #     print('Совпадений не найдено')
+#
+# # # закрываем файл
+# # file1.close
+
+def sum_it(x, y):
+    result = x + y
+    return result  # возвращает результат
+
+
+print(sum_it(5, 8))
+print(sum_it(25, 12))
