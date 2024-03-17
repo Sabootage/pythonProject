@@ -22,39 +22,39 @@ else:
 
 # Задание 2.5.
 # Напишите программу-калькулятор, которая принимает два числа и оператор (в формате str), производит заданное арифметическое действие и печатает результат в формате: {num1} {operator) {num2) = {result}
-# num1 = int(input('Введите 1-ое число: '))
-# num2 = int(input('Введите 2-ое число: '))
-# operator = str(input('Введите требуемое арифметическое действие: '))
-# if operator == '+':
-#     result = num1 + num2
-#     print(f'{num1} {operator} {num2} = {result}')
-# elif operator == '-':
-#     result = num1 - num2
-#     print(f'{num1} {operator} {num2} = {result}')
-# elif operator == '*':
-#     result = num1 * num2
-#     print(f'{num1} {operator} {num2} = {result}')
-# elif operator == '/':
-#     if num2 != 0:
-#         result = num1 / num2
-#         print(f'{num1} {operator} {num2} = {result}')
-#     else:
-#         print('Деление на ноль невозможно')
-# else:
-#     print('Введеное неверное значение')
+num1 = int(input('Введите 1-ое число: '))
+num2 = int(input('Введите 2-ое число: '))
+operator = str(input('Введите требуемое арифметическое действие: '))
+if operator == '+':
+     result = num1 + num2
+     print(f'{num1} {operator} {num2} = {result}')
+elif operator == '-':
+     result = num1 - num2
+     print(f'{num1} {operator} {num2} = {result}')
+elif operator == '*':
+     result = num1 * num2
+     print(f'{num1} {operator} {num2} = {result}')
+elif operator == '/':
+     if num2 != 0:
+         result = num1 / num2
+         print(f'{num1} {operator} {num2} = {result}')
+     else:
+         print('Деление на ноль невозможно')
+else:
+     print('Введеное неверное значение')
 
 # ВАРИАНТ №2
-# try:
-#     if operator == '+':
-#         print(num1 + num2)
-#     elif operator == '-':
-#         print(num1 - num2)
-#     elif operator == '*':
-#         print(num1 * num2)
-#     elif operator == '/':
-#         print(num1 / num2)
-# except ZeroDivisionError:
-#     print('Деление на ноль невозможно')
+try:
+     if operator == '+':
+         print(num1 + num2)
+     elif operator == '-':
+         print(num1 - num2)
+     elif operator == '*':
+         print(num1 * num2)
+     elif operator == '/':
+         print(num1 / num2)
+except ZeroDivisionError:
+     print('Деление на ноль невозможно')
 
 
 
