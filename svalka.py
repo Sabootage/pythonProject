@@ -61,11 +61,3 @@
 #
 # # # закрываем файл
 # # file1.close
-
-def sum_it(x, y):
-    result = x + y
-    return result  # возвращает результат
-
-
-print(sum_it(5, 8))
-print(sum_it(25, 12))
