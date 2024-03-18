@@ -1,3 +1,4 @@
+#сравнить
 # s = ['foo', 'baz', 'bar']
 # for i, word in enumerate(s, 1):
 #     print(f'{i} {word}')
