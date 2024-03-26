@@ -10,10 +10,10 @@ file = input(Fore.MAGENTA + 'Введите путь к файлу для про
 print(Style.RESET_ALL) #очистить цвет
 file2 = open(f'{file}', 'r', encoding='utf-8')
 file3 = file2.read() #готовая переменная для проверки
-# print(file3) #этот print вызывает печать всего документа построчно
-#Разбить file3 на отдельные строки
-file3 = file3.split('\n')
-# print(file3) #этот print печатает уже разбитый документ
+#print(file3) #этот print вызывает печать всего документа (как в inky)
+file3 = file3.split('\n') #разбить file3 на отдельные строки
+file3 = [line.strip() for line in file3] #разбтые строки проверить и удалить пробелы
+#print(file3) #этот print печатает уже разбитый документ
 #вывести количестков строк в файле
 print('Количество строк в файле =', len(file3))
 #найти и псчитать количество строк, содержащих "//Paid"
@@ -21,19 +21,26 @@ count = 0
 for line in file3:
     if '//Paid' in line:
         count += 1
+#если //Paid будет = 0, найти и посчитать количество строк, содержащих "Premium"
 print('Количество строк, содержащих "//Paid" =', count)
+if count == 0:
+    for line in file3:
+        if 'Premium' in line:
+            count += 1
+    print('Количество строк, содержащих "Premium" =', count)
 #найти и посчитать количество строк, содержащих "$price_"
 count2 = 0
 for line in file3:
     if '$price_' in line:
         count2 += 1
 print('Количество строк, содержащих "$price_" =', count2)
+#проверить равентсво Paid/Premium и $price_
 if count == count2:
     print(Fore.GREEN + 'Тест пройден успешно: есть все платные выборы')
 else:
     print(Fore.RED + 'Возможно, пропущен платный выбор, пожалуйста, проверьте документ вручную')
-#найти и напечатать строки, содержашие "$price_1" с номером строки
 print(Style.RESET_ALL) #очистить цвет
+#найти и напечатать строки, содержашие "$price_1" с номером строки
 for line in file3:
     if '$price_1' in line:
         #вывести номер строки, содержащей "$price_1"
@@ -43,9 +50,16 @@ for line in file3:
         if '_price_1' in line:
             print(Fore.GREEN + 'Тест пройден успешно')
         elif '_price_1' not in line:
-            print(Fore.BLUE + 'Тег_1 отсутствует', Fore.GREEN + 'DONE')
+            if '_price_3' in line:
+                print(Fore.RED + 'Тест провален: неверный тег')
+            elif '_price_2' in line:
+                print(Fore.RED + 'Тест провален: неверный тег')
+            elif '_price_1' not in line:
+                print(Fore.BLUE + 'Тег_1 отсутствует', Fore.GREEN + 'DONE')
+            else:
+                print(Fore.RED + 'Тест провален: проверьте тег')
         else:
-            print(Fore.RED +'Тест провален')
+            print(Fore.RED + 'Тест провален: нужно вмешательство')
 #найти и напечатать строки, содержашие "$price_2" с номером строки
 print(Style.RESET_ALL) #очистить цвет
 for line2 in file3:
@@ -57,9 +71,16 @@ for line2 in file3:
         if '_price_2' in line2:
             print(Fore.GREEN + 'Тест пройден успешно')
         elif '_price_2' not in line2:
-            print(Fore.BLUE + 'Тег_2 отсутствует', Fore.GREEN + 'DONE')
+            if '_price_3' in line2:
+                print(Fore.RED + 'Тест провален: неверный тег')
+            elif '_price_1' in line2:
+                print(Fore.RED + 'Тест провален: неверный тег')
+            elif '_price_2' not in line2:
+                print(Fore.BLUE + 'Тег_2 отсутствует', Fore.GREEN + 'DONE')
+            else:
+                print(Fore.RED + 'Тест провален: проверьте тег')
         else:
-            print(Fore.RED +'Тест провален')
+            print(Fore.RED +'Тест провален, нужно вмешательство')
 #найти и напечатать строки, содержашие "$price_3" с номером строки
 print(Style.RESET_ALL) #очистить цвет
 for line3 in file3:
@@ -71,11 +92,18 @@ for line3 in file3:
         if '_price_3' in line3:
             print(Fore.GREEN + 'Тест пройден успешно')
         elif '_price_3' not in line3:
-            print(Fore.BLUE + 'Тег_3 отсутствует', Fore.GREEN + 'DONE')
+            if '_price_2' in line3:
+                print(Fore.RED + 'Тест провален: неверный тег')
+            elif '_price_1' in line3:
+                print(Fore.RED + 'Тест провален: неверный тег')
+            elif '_price_3' not in line3:
+                print(Fore.BLUE + 'Тег_3 отсутствует', Fore.GREEN + 'DONE')
+            else:
+                print(Fore.RED + 'Тест провален: проверьте тег')
         else:
-            print(Fore.RED +'Тест провален')
-else:
-    print(Fore.RED + '$price_3 не найден')
+            print(Fore.RED + 'Тест провален: нужно вмешательство')
+# else:
+#     print(Fore.RED + '$price_3 не найден') #закоменчено, т.к. не ясно поведение с одновременным выводом if и else о том, что price не найден
 #Test_1 (проверка Online статуса)
 print(Style.RESET_ALL) #очистить цвет
 ch = int(input(Fore.MAGENTA + 'Пожалуйста, введите количество чаптеров в файле: ' + Fore.RESET))
