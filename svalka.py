@@ -1,69 +1,56 @@
-#сравнить
-# s = ['foo', 'baz', 'bar']
-# for i, word in enumerate(s, 1):
-#     print(f'{i} {word}')
-#
-# count = s.count('foo')
-# print('Количество foo:', count)
+# импорт модуля SWAGMASHA для открытия файла
+# from SWAGMASHA import SM_open_file
+# print(SM_open_file)
+
+def count_agtc(dna):
+    a = dna.count('A')
+    t = dna.count('T')
+    g = dna.count('G')
+    c = dna.count('C')
+    return a, t, g, c
+print(count_agtc("AGCTGACGTAC"))
+
+def is_palindrome(text):
+    text1 = text.lower()
+    text2 = ''
+    for char in text1:
+        if char.isalpha():
+            text2 += char
+    return text2 == text2[::-1] #полученный text2 равен перевернутому text2
+
+text = 'А роза упала на лапу Азора'
+print(is_palindrome(text))
+
+starts_with = lambda text, start: text.startswith(start)
+def starts_with(text, start):
+    return text.startswith(start)
+
+starts_with = lambda text: text.startswith('W')
+result = starts_with('World')
+print(result)
+def starts_with(text: str):
+    return text.startswith('W')
+
+func = lambda x: True if x % 19 == 0 or x % 13 == 0 else False
+print(func(19))
+
+#сортировка по длине и алфавиту
+data = ['1', '12', '123', '1234', '12345', '123456', '1234567', '12345678', '123456789', '1', '12', '123']
+data2 = ['цйу', 'ыва', 'йцу', 'ячс', 'ывавып', 'ывапкп', 'гонг', 'мит', 'огл',]
+sorted_dat = sorted(data, key=lambda x: len(x)) #по возрастанию
+# sorted_dat = sorted(data, key=lambda x: -len(x)) #по убыванию
+sorted_dat2 = sorted(data2, key=lambda x: (len(x), x)) #по длине, алфавиту
+print(sorted_dat)
+print(sorted_dat2)
 
 
-# months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-# for i, m in enumerate(months, 1):  # начитать нумерацию с 1
-#    print(f'{i}: {m}')
-
-# names = ['Bob', 'Alice', 'Guido']
-# print(list(enumerate(names, 1)))
-
-
-# разбиение на index (результат остается на одной строке через end, различаем введенное значение через [1]
-# number = (input("Введите 4-eх значное число: "))
-# print ('Тысячи: ', end="")
-# print (f'{number}'[0])
-# print ('Сотни: ', end="")
-# print (f'{number}'[1])
-# print ('Десятки: ', end="")
-# print (f'{number}'[2])
-# print ('Единицы: ', end="")
-# print (f'{number}'[3])
-
-
-
-# """"x = open('E:/SM/TinderSim_InkChapters/ADRENALINE/CS/ADRENALINE_CH01_CS.ink', 'r', encoding='utf-8')
-# c = x.read() #устанавливаем переменную чтения этого файла
-# # print(c) #выводим содержимое файла в консоль
-# y = (f'В файле {c} найден искомый символ')
-# q = input('Введите искомый символ: ')
-# if q in c:
-#     # print(y),
-#     input('Нажмите Enter для поиска индекса искомого элемента: ')
-#     if q in c:
-#         index = c.index(q)
-#         print(f'Индекс искомого элемента: {index}') # вывод индекса искомого элемента (index)
-# else:
-#     print('Совпадений не найдено')"""
-
-
-# получим объект файла
-# file1 = open("E:/SM/TinderSim_InkChapters/ADRENALINE/CS/ADRENALINE_CH01_CS.ink", "r", encoding="utf-8")
-# a = '$price_1'
-# while True:
-#     # считываем строку
-#     line = file1.readline()
-#     # прерываем цикл, если строка пустая
-#     if not line:
-#         break
-#     # выводим строку
-#     print(line.strip())
-# if a in file1:
-#     line = file1.count(a)
-# print('Количество price_1:', line)
-# # else:
-# #     print('Совпадений не найдено')
-#
-# # # закрываем файл
-# # file1.close
-a = [1, 4, 3, 2, 5]
-d = [5, 7, 6, 8, 9]
-def flip(d, a):
-    a.sort()
-    print(a)
+def text_decor(func):
+    def dec(*args, **kwargs):
+        print('Hello')
+        func(*args, **kwargs)
+        print('Goodbye')
+    return dec
+@text_decor
+def simple_func():
+    print('I just simple python function')
+simple_func()
