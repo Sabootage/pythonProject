@@ -29,14 +29,18 @@ print(result_list)
 
 # 4.5. Напишите декоратор, который высчитывает время работы функции, которую он принимает в качестве параметра
 import time
-def count_time(func):
-    def wrapper(*args, **kwargs):
-        start = time.time()
-        result = func(*args, **kwargs)
-        print(time.time() - start)
+def count_execution_time(func):
+    def wrapper(*args):
+        start = time.perf_counter()
+        result = func(*args)
+        end = time.perf_counter()
+        exec_time = end - start
+        print(f'{func.__name__} execution time is: {exec_time}')
         return result
     return wrapper
-
+@count_execution_time
+def greeting(name):
+    return f'Hello {name}!'
 
 # 4.6. Создайте файл my_calc.py и пропишите в нем минимум 4 функции, выполняющие базовые арифметические вычисления.
 #      Примените эти функции в качестве методов в другом файле.
