@@ -243,21 +243,63 @@ if count_charemoji == 0:
     print(Fore.GREEN + 'Тест #charEmoji пройден успешно')
 print(Style.RESET_ALL) #очистить цвет (для визуального спейса тестов друг от друга)
 
-'''ТЕСТ для проверки #progressPoints'''
-# Test проверки #progressPoints
-print(Fore.BLACK + Back.WHITE + "Тест #progressPoints: " + Fore.RESET + Back.RESET)
-count_cutscene = 0 #счётчик для #endCutscene
+'''ТЕСТ для проверки Cutscene'''
+# Test проверки #startCutscene, #endCutscene и #progressPoints
+print(Fore.BLACK + Back.WHITE + "Тест Cutscene: " + Fore.RESET + Back.RESET)
+count_start_cutscene = 0 #счётчик для StartCutscene
+count_end_cutscene = 0 #счётчик для EndCutscene
+count_progress_points = 0 #счётчик для #progressPoints
 for line in file:
-    if '#endCutscene' in line:
-        count_cutscene += 1
-        #if '#progressPoints' in file3[file3.index(line) + 1]:
-        if '#progressPoints' in line:
-            print(Fore.GREEN + 'Тест progressPoints пройден успешно')
+    if 'CMD #startCutscene' in line:
+        count_start_cutscene += 1
+    elif 'CMD #endCutscene' in line:
+        count_end_cutscene += 1
+        if '#progressPoints' in line: #здесь дополнительно проверямем наличие #progressPoints
+            count_progress_points += 1
+            # print(Fore.GREEN + 'Тест progressPoints пройден успешно')
         else:
-            print(Fore.RED + '#ProgressPoints отсутсвует', Fore.RESET + 'Номер строки =', file.index(line) + 1) #для удобства, начинаем считать с 1
-if count_cutscene == 0:
+            continue
+            # print(Fore.RED + '#ProgressPoints отсутсвует', Fore.RESET + 'Номер строки =', file.index(line) + 1) #для удобства, начинаем считать с 1
+    else:
+        continue
+if count_start_cutscene == 0 and count_end_cutscene == 0:
     print(Fore.YELLOW + 'Cutscene в файле не используется')
+elif count_start_cutscene > 0 or count_end_cutscene > 0:
+    if count_start_cutscene == count_end_cutscene:
+        print(Fore.GREEN + 'Тест Cutscene пройден успешно')
+    elif count_start_cutscene != count_end_cutscene:
+        print(Fore.RED + 'Тест Cutscene провален:' + Fore.RESET)
+        print('Количество #startCutscene =', [count_start_cutscene],
+              '\nКоличество #endCutscene =', [count_end_cutscene])
+
+# Test проверки #progressPoints
+if count_progress_points == 0:
+    print(Fore.YELLOW + 'Progresspoints в файле не используется')
+elif count_progress_points > 0:
+    if count_progress_points == count_end_cutscene:
+        print(Fore.GREEN + 'Тест progressPoints пройден успешно', Fore.RESET)
+    else:
+        print(Fore.RED + 'Тест progressPoints провален', Fore.RESET)
+        print('Количество #progressPoints =', [count_progress_points],
+              '\nКоличество #endCutscene =', [count_end_cutscene])
 print(Style.RESET_ALL) #очистить цвет (для визуального спейса тестов друг от друга)
+
+'''НЕАКТУЛЬНО'''
+# '''ТЕСТ для проверки #progressPoints'''
+# # Test проверки #progressPoints
+# print(Fore.BLACK + Back.WHITE + "Тест #progressPoints: " + Fore.RESET + Back.RESET)
+# count_cutscene = 0 #счётчик для #endCutscene
+# for line in file:
+#     if '#endCutscene' in line:
+#         count_cutscene += 1
+#         #if '#progressPoints' in file3[file3.index(line) + 1]:
+#         if '#progressPoints' in line:
+#             print(Fore.GREEN + 'Тест progressPoints пройден успешно')
+#         else:
+#             print(Fore.RED + '#ProgressPoints отсутсвует', Fore.RESET + 'Номер строки =', file.index(line) + 1) #для удобства, начинаем считать с 1
+# if count_cutscene == 0:
+#     print(Fore.YELLOW + 'Cutscene в файле не используется')
+# print(Style.RESET_ALL) #очистить цвет (для визуального спейса тестов друг от друга)
 
 '''ТЕСТ для проверки реплик Player: Player и NPC: NPC'''
 #Test проверить, что НЕТ строк 'Player: Player' и 'NPC: NPC'

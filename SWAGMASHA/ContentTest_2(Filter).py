@@ -32,13 +32,13 @@ if __name__ == "__main__":
 out_str = out[:] # копия списка
 out_str = list(filter(None, out_str)) # удалить пустые строки
 print("Отфильтрованный список без пустых строк:", out_str)
-out_str = list(filter(lambda it: it.startswith('//') == False, out_str)) # удалить комменты
-out_str = list(filter(lambda it: it.startswith('CMD') == False, out_str)) # удалить команды
-out_str = list(filter(lambda it: it.startswith('-') == False, out_str)) # удалить разделители
-out_str = list(filter(lambda it: it.startswith('=') == False, out_str)) # удалить разделители сессий
-out_str = list(filter(lambda it: it.startswith('Player: {') == False, out_str)) # удалить эмоджи Player
-out_str = list(filter(lambda it: it.startswith('NPC: {') == False, out_str)) # удалить эмоджи NPC
-out_str = list(filter(lambda it: it.startswith('INCLUDE') == False, out_str)) # удалить GlobalVariables
+out_str = list(filter(lambda it: it.startswith('//') == False, out_str))  #удалить комменты
+out_str = list(filter(lambda it: it.startswith('CMD') == False, out_str))  #удалить команды
+out_str = list(filter(lambda it: it.startswith('-') == False, out_str))  #удалить разделители
+out_str = list(filter(lambda it: it.startswith('=') == False, out_str))  #удалить разделители сессий
+out_str = list(filter(lambda it: it.startswith('Player: {') == False, out_str))  #удалить эмоджи Player
+out_str = list(filter(lambda it: it.startswith('NPC: {') == False, out_str))  #удалить эмоджи NPC
+out_str = list(filter(lambda it: it.startswith('INCLUDE') == False, out_str))  #удалить GlobalVariables
 print("Отфильтрованный список без синтаксиса inka:", out_str)
 if len(out_str) == 0:
    print(Fore.GREEN + "Тест пройден успешно: общих текстовых элементов не обнаружено")

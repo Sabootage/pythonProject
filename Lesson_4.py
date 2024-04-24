@@ -41,8 +41,14 @@ def count_execution_time(func):
 @count_execution_time
 def greeting(name):
     return f'Hello {name}!'
+greeting('Alex')
 
 # 4.6. Создайте файл my_calc.py и пропишите в нем минимум 4 функции, выполняющие базовые арифметические вычисления.
 #      Примените эти функции в качестве методов в другом файле.
+
+#из файла Lesson_1.py импортировать функцию calc
+from Lesson_1 import calc
+def func (calc):
+    return calc
 
 

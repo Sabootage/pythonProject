@@ -54,3 +54,27 @@ def text_decor(func):
 def simple_func():
     print('I just simple python function')
 simple_func()
+
+
+list_ = [1, None, print]
+dict_ = {'1': sum,
+         '2': 100}
+for item in list_:
+    if item:
+        print(item)
+for key, value in dict_.items():
+    print(key, value)
+
+
+def decorator(func):
+    def wrapper(a, b):  # здесь наши (4, 5)
+        print('Делаем что-то до')  # в этом теле функции мы просто произвели действия
+        result = func(a, b)  # здесь наш add
+        print('Делаем что-то после')
+        return result
+    return wrapper  # здесь мы её вернули
+
+@decorator
+def add(a, b):  # новая функция
+    return a + b
+print(add(1, 2))
